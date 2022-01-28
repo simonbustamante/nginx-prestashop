@@ -25,6 +25,9 @@ mysql:
         MYSQL_USER: mysql-user
         MYSQL_PASSWORD: mysql-pwd
         MYSQL_DATABASE: prestashop
+    ports:
+        - "3306:3306"
+        - "33060:33060"
 
 ui4docker:
     image: uifd/ui-for-docker:latest

@@ -1,6 +1,6 @@
-FROM mysql:latest
+FROM mysql:5.7
 
-MAINTAINER Andreas Schlapbach <schlpbch@gmail.com>
+LABEL Simon Bustamante <simon.bustamante@gmail.com>
 
 #EXPOSE 80 443
 
