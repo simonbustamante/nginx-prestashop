@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
 COPY php.ini-development /usr/local/etc/php/php.ini-development
 COPY php.ini-production /usr/local/etc/php/php.ini-production
 
+WORKDIR /html
+
 #RUN apt-get install git -y \
 #    && git clone -b php7 https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
 #    && docker-php-ext-install -j$(nproc) redis

@@ -143,7 +143,7 @@
 ;   Development Value: 5
 ;   Production Value: 5
 
-; short_open_tag
+short_open_tag = Off
 ;   Default Value: On
 ;   Development Value: Off
 ;   Production Value: Off
@@ -406,7 +406,7 @@ max_input_time = 60
 
 ; Maximum amount of memory a script may consume
 ; http://php.net/memory-limit
-memory_limit = 2G
+memory_limit = 4G
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Error handling and logging ;
