@@ -2,4 +2,4 @@ prestashop/
 db/
 generated_data/**
 docker-images/mysql/prestashop.sql
-
+prestashop.sql
