@@ -6,3 +6,6 @@ LABEL Simon Bustamante <simon.bustamante@gmail.com>
 
 #Adding MySQL configuration
 COPY my.conf /etc/mysql/conf.d/default.cnf
+
+
+

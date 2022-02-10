@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY php.ini-development /usr/local/etc/php/php.ini-development
 COPY php.ini-production /usr/local/etc/php/php.ini-production
+COPY php.ini-production /usr/local/etc/php/php.ini
 
 WORKDIR /html
 

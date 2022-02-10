@@ -16,11 +16,16 @@ unzip prestashop_1.7.8.3.zip
 
 # Create prestashop directory
 mkdir prestashop
+
+#EN CASO DE NECESITAR CARGAR UNA DATA GENERADA DESDE "prestashop-shop-creator" 
+#se deben descomentar estas lines y compilar una nueva version de imagen co el siguiete comando
+#docker-compose up -d --no-deps --build
+############################################################################
 #mkdir prestashop/install
 #mkdir prestashop/install/fixtures
 #mkdir prestashop/install/fixtures/fashion
-
-
+#sudo cp -rf generated_data/* prestashop/install/fixtures/fashion/
+############################################################################
 
 # Move zip file with actual shop to prestashop prestashop directory
 mv prestashop.zip prestashop
@@ -29,22 +34,25 @@ mv prestashop.zip prestashop
 mv index.php prestashop
 
 
-unzip -o prestashop/prestashop.zip -d prestashop/
+# unzip -o prestashop/prestashop.zip -d prestashop/
 
 #Set the correct user and group ownership for the PrestaShop directory
 sudo chown -R www-data:www-data prestashop/
-#sudo chown -R www-data:www-data generated_data/
+
 
 # Remove zip and install file
 rm prestashop_1.7.8.3.zip Install_PrestaShop.html
 
 
-#copiando la data generada a la version
-sudo cp -rf generated_data/* prestashop/install/fixtures/fashion/
+
 
 
 # run docker containers
 
 docker-compose up -d
 
-# install prestashop from cli
+
+# Cargar data generada en "prestashop-shop-creator"
+# adding prestashop backup - GENERATED DATA FROM prestashop-shop-creator
+# echo "THE PASSWORD FOR MYSQL IS => 'mysql-root-pwd'"
+#mysql -u root -h 127.0.0.1 -p prestashop < ./docker-images/mysql/prestashop.sql
