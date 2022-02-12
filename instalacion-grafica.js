@@ -1,13 +1,18 @@
 
 const puppeteer = require('puppeteer');
+const fs = require('fs');
+const data = fs.readFileSync('configuration-data.json');
+var server = JSON.parse(data);
+
 
 (async () => {
 const browser = await puppeteer.launch({ headless: false, defaultViewport: { width: 1920, height: 1080 }, args: ['--start-maximized'] });
 const page = await browser.newPage();
 let element, formElement, tabs;
 
+
 //inicio en pagina de instalacion
-await page.goto(`http://localhost/install/`, { waitUntil: 'networkidle0' });
+await page.goto('http://'+server.ip+'/install/', { waitUntil: 'networkidle0' });
 element = await page.$x(`//*[@id="btNext"]`);
 	await element[0].click();
 	await page.waitForNavigation();
@@ -29,13 +34,13 @@ await page.content();
 element = await page.$x(`//*[@id="infosShop"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="infosShop"]`);
-	await element[0].type(`demo`);
-	console.log('Nombre de instalación => demo');
+	await element[0].type(server.demoname);
+	console.log('Nombre de instalación => '+server.demoname);
 
 element = await page.$x(`//div[@id='infosActivity_chosen']/a/span`);
 	await element[0].click();
 element = await page.$x(`//div[@id='infosActivity_chosen']/div/div/input`);
-	await element[0].type(`foo`);
+	await element[0].type(server.shoppurpose);
 element = await page.$x(`//div[@id='infosActivity_chosen']/div/ul/li`);
 	await element[0].click();
 	console.log('Tema de la tienda => Food and Beverage');
@@ -57,32 +62,32 @@ element = await page.$x(`//div[@id='infosShopBlock']/div[6]/div/label[2]/input`)
 element = await page.$x(`//*[@id="infosFirstname"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="infosFirstname"]`);
-	await element[0].type(`admin`);
-	console.log('Nombre del administrador => admin');
+	await element[0].type(server.firstname);
+	console.log('Nombre del administrador => '+server.firstname);
 
 element = await page.$x(`//*[@id="infosName"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="infosName"]`);
-	await element[0].type(`admin`);
-	console.log('apellido del administrador => admin');
+	await element[0].type(server.surname);
+	console.log('apellido del administrador => '+server.surname);
 
 element = await page.$x(`//*[@id="infosEmail"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="infosEmail"]`);
-	await element[0].type(`admin@admin.com`);
-	console.log('Email - Usuario del administrador => admin@admin.com');
+	await element[0].type(server.email);
+	console.log('Email - Usuario del administrador => '+server.email);
 
 element = await page.$x(`//*[@id="infosPassword"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="infosPassword"]`);
-	await element[0].type(`abcd1234`);
-	console.log('Password => abcd1234');
+	await element[0].type(server.password);
+	console.log('Password => '+server.password);
 
 element = await page.$x(`//*[@id="infosPasswordRepeat"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="infosPasswordRepeat"]`);
-	await element[0].type(`abcd1234`);
-	console.log('Confirmación de Password => abcd1234');
+	await element[0].type(server.password);
+	console.log('Confirmación de Password => '+server.password);
 
 element = await page.$x(`//*[@id="btNext"]`);
 	await element[0].click();
@@ -95,14 +100,14 @@ element = await page.$x(`//div[@id='formCheckSQL']/p`);
 	await element[0].click();
 element = await page.$x(`//*[@id="dbServer"]`);
 	await element[0].evaluate( element => element.value = "");
-	await element[0].type(`192.168.0.6`);
-	console.log('Dirección de Base de Datos => 192.168.0.6');
+	await element[0].type(server.ip);
+	console.log('Dirección de Base de Datos => '+server.ip);
 
 element = await page.$x(`//*[@id="dbPassword"]`);
 	await element[0].click();
 element = await page.$x(`//*[@id="dbPassword"]`);
-	await element[0].type(`mysql-root-pwd`);
-	console.log('Password de base de datos => mysql-root-pwd');
+	await element[0].type(server.dbpassword);
+	console.log('Password de base de datos => '+server.dbpassword);
 
 element = await page.$x(`//*[@id="db_prefix"]`);
 	await element[0].click();
@@ -127,5 +132,8 @@ await page.waitForNavigation();
 await page.content();
 await page.waitForXPath('//*[@id="boBlock"]/p[2]/a/span', {visible: true, timeout: 9999999 })
 	.then(()=>console.log("PROCEDA A BORRAR EL DIRECTORIO DE INTALACIÓN"));
+element = await page.$x('//*[@id="boBlock"]/p[2]/a/span');
+	await element[0].click();
+await page.content();
 await browser.close();
 })();

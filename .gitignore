@@ -3,3 +3,5 @@ db/
 generated_data/
 docker-images/mysql/prestashop.sql
 prestashop.sql
+node_modules/
+package-lock.json
