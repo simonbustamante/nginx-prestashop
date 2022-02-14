@@ -7,3 +7,10 @@ La plataforma B2C se encuentra basada en “Prestashop”   el cual es un sistem
 
 1. Realize primero el despliegue de la base de datos B2B, de acuerdo con https://github.com/simonbustamante/farmerRegistration.git alli podrá realizar la configuración de docker y docker-compose entre otras librerías necesarias para la ejecución de este script
 
+## Despliegue de Herramienta y Datos
+
+      ./install-Nginx-PrestaShop1.7.sh
+      
+## Detener Herramienta
+
+      docker-compose down
