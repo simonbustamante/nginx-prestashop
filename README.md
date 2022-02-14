@@ -2,6 +2,19 @@
 
 La plataforma B2C se encuentra basada en “Prestashop”   el cual es un sistema de gestión de contenidos (CMS) libre y de código abierto pensado para construir desde cero tiendas en línea de comercio electrónico. Enfocado para permitir crear tiendas en línea desde pequeñas empresas a grandes corporaciones. Cuenta con un amplio mercado de temas con los que personalizar la tienda y más de 5000 módulos, entre gratuitos y de pago, con los que adaptar las funcionalidades propias de la herramienta.
 
+Este script de instalación contiene una data con las siguientes características:
+
+    clientes de la plataforma: 13000
+    manufacturers o granjeros: 10000
+    suppliers (Mayani): 1
+    Direcciones de delivery: 13001
+    Precios específicos: 40000
+    Productos: 40000
+    Carritos de compra: 52000
+    Ordenes: 52000
+
+Para mas detalles de como se genera la data ver el prestashop-creator en https://github.com/simonbustamante/prestashop-shop-creator.git
+
 
 ## Requisitos
 
@@ -14,3 +27,8 @@ La plataforma B2C se encuentra basada en “Prestashop”   el cual es un sistem
 ## Detener Herramienta
 
       docker-compose down
+
+## Descripción de data
+
+
+## 
