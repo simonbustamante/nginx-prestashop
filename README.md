@@ -1,8 +1,12 @@
-# PrestaShop using Nginx and PHP:FPM with Docker Compose
+# Base de Datos B2C con Prestashop 
 
-A dockerized version of [PrestaShop](https://www.prestashop.com/) using the latest stable versions of [Nginx](https://www.nginx.com/), [PHP FastCGI Process Manager](http://php.net/manual/en/book.fpm.php) and [MySQL](https://www.mysql.com) linked together by [docker-compose](https://docs.docker.com/compose/).
+La plataforma B2C se encuentra basada en “Prestashop”   el cual es un sistema de gestión de contenidos (CMS) libre y de código abierto pensado para construir desde cero tiendas en línea de comercio electrónico. Enfocado para permitir crear tiendas en línea desde pequeñas empresas a grandes corporaciones. Cuenta con un amplio mercado de temas con los que personalizar la tienda y más de 5000 módulos, entre gratuitos y de pago, con los que adaptar las funcionalidades propias de la herramienta.
 
-## Installation
+
+## Requisitos
+
+1. Realize primero el despliegue de la base de datos B2B, de acuerdo con https://github.com/simonbustamante/farmerRegistration.git
+
 
 *Prerequisite*:
 - Docker and Docker-compose are installed on your system.
