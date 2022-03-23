@@ -101,7 +101,7 @@ element = await page.$x(`//div[@id='formCheckSQL']/p`);
 element = await page.$x(`//*[@id="dbServer"]`);
 	await element[0].evaluate( element => element.value = "");
 	await element[0].type(server.ip);
-	console.log('Dirección de Base de Datos => '+server.ip);
+	console.log('Dirección de Base de Datos => '+server.ipdb);
 
 element = await page.$x(`//*[@id="dbPassword"]`);
 	await element[0].click();
