@@ -1,6 +1,7 @@
 { 
     "ip": "192.168.0.6",
     "ipdb": "192.168.0.6",
+    "port": "80",
     "dbname": "prestashop",
     "dbuser": "root",
     "dbpassword": "mysql-root-pwd",
