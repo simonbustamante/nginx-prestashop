@@ -12,7 +12,7 @@ let element, formElement, tabs;
 
 
 //inicio en pagina de instalacion
-await page.goto('http://'+server.ip+'/install/', { waitUntil: 'networkidle0' });
+await page.goto('http://'+server.ip+':'+server.port+'/install/', { waitUntil: 'networkidle0' });
 element = await page.$x(`//*[@id="btNext"]`);
 	await element[0].click();
 	await page.waitForNavigation();
